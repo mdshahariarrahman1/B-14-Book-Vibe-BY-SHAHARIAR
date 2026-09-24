@@ -3,11 +3,9 @@ import React from 'react';
 import BookCard from '../selected/BookCard';
 
 const getBookData = async (): Promise<IdataType[]> => {
-  const baseUrl =
-    process.env.NEXT_PUBLIC_SERVER_BASE_URL ||
-    `https://${process.env.VERCEL_URL}`;
-
-  const res = await fetch(`${baseUrl}/booksData.json`);
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_SERVER_BASE_URL || ''}/booksData.json`
+  );
 
   if (!res.ok) {
     throw new Error('Failed to fetch books data');
